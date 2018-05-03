@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form Validation Page</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<style>
+			#formDiv{
+				width: 500px;
+				margin: 0 auto;
+				background-color: pink;
+				font-family: helvetica;
+			}
+			input{
+				padding: 5px;
+				border-radius: 10px;
+				border: 1px solid grey;
+			}
+			label{
+				width: 150px;
+				float: left;
+				padding-top: 5px;
+				text-align: justify;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Form Validation Page</h1>
+	<br>
+		<div id="formDiv">
+			<br><form>
+				<label for="email">Email</label>
+				<input type="text" name="email" id="emailIn">
+<br>
+				<label for="phone">Phone Number</label>
+				<input type="text" name="phone" id="phoneIn">
+<br>
+				<label for="pass">Password</label>
+				<input type="password" name="pass" id="passIn">
+<br>
+				<label for="pass">Password Confirmation</label>
+				<input type="password" name="pass" id="passIn">
+			</form><br>
+		</div>
+		<script>
+			var regex = /e/g;
+			var string = "Regex is Great!";
+			var result = string.match(regex);
+		</script>
+	</body>
+</html>
