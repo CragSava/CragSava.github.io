@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Form Validation Page</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 		<style>
 			#formDiv{
@@ -29,10 +29,10 @@
 		</style>
 	</head>
 	<body>
-		<h1>Form Validation Page</h1>
+		<h1 id="title">Form Validation Page</h1>
 	<br>
 		<div id="formDiv">
-			<br><form>
+<br>	<form id="validate">
 				<label for="email">Email</label>
 				<input type="text" name="email" id="emailIn">
 <br>
@@ -49,8 +49,8 @@
 			</form><br>
 		</div>
 		<script>
-			$("#formDiv").submit(function(event){
-				alert('test');
+			$("#title").onclick(function(){
+				alert("Hey");
 			});
 		</script>
 	</body>
