@@ -26,9 +26,6 @@
 				height: 25px;
 				margin-left: 225px;
 			}
-			#subBut:hover{
-				opacity: 0.75;
-			}
 		</style>
 	</head>
 	<body>
@@ -52,9 +49,9 @@
 			</form><br>
 		</div>
 		<script>
-			var regex = /e/g;
-			var string = "Regex is Great!";
-			var result = string.match(regex);
+			$("#formDiv").submit(function(event){
+				alert('test');
+			});
 		</script>
 	</body>
 </html>
