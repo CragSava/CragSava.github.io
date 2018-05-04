@@ -24,7 +24,7 @@
 			}
 			#subBut{
 				height: 25px;
-				margin-left: 225px;
+				margin-left: 240px;
 			}
 		</style>
 	</head>
@@ -45,7 +45,7 @@
 				<label for="pass">Confirm Password</label>
 				<input type="password" name="pass" id="passInCon">
 <br>
-				<input type="button" name="submit" value="Submit" id="subBut">
+				<input type="submit" name="submit" value="Submit" id="subBut">
 			</form><br>
 		</div>
 		<script>
@@ -54,6 +54,7 @@
 			});
 			$("#validationForm").submit(function(){
 				alert('test');
+				event.preventDefault();
 			});
 		</script>
 	</body>
