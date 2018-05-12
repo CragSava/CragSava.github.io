@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery UI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<style>
+			*,
+			*:after,
+			*:before {
+				margin: 0;
+				padding: 0;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			body, html{
+			}
+			body{
+				margin: 0;
+				padding: 0;
+				font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			  font-weight: 300;
+			  /*overflow: hidden;*/
+			}
+			::-webkit-scrollbar {
+			    width: 5px;
+			    position: absolute;
+			}
+			::-webkit-scrollbar-track {
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+			}
+			::-webkit-scrollbar-thumb {
+			    background-color: rgba(0,0,0,0.25);
+			}
+			#menuBar{
+				width: 100%;
+				height: 40px;
+				background-color: #c0c0c0;
+				border-bottom: 1px solid grey;
+			}
+			#wrapper{
+				height: 100vh;
+			}
+			#logo{
+				padding: 9px 0 0 20px;
+				font-size: 120%;
+				font-weight: bold;
+				float: left;
+			}
+			#buttonDiv{
+				float:right;
+				font-size: 110%;
+				position: relative;
+			}
+			.runBut{
+				background-color: inherit;
+				border: 1px solid grey;
+				padding: 5px 10px;
+				margin: 5px 20px 5px 10px;
+				cursor: pointer;
+			}
+			.hovered:hover{
+				background-color: #727272;
+				color: black;
+			}
+			.selected{
+				background-color: grey;
+				color: white;
+			}
+			#tabs{
+				margin: 0 auto;
+				text-align: center;
+				/*background-color: #fff;*/
+				width: 100%;
+			}
+			#toggles{
+				display: inline-block;
+				list-style: none;
+			}
+			#toggles li{
+				float: left;
+				padding: 10px;
+			}
+			#toggles li{
+				border-right: 1px solid grey;
+				cursor: pointer;
+			}
+			#toggles li:first-child{
+				border-left: 1px solid grey;
+			}
+			#windows{
+				/*overflow-x: hidden;*/
+				/*overflow-y: auto;*/
+			}
+			#windows textarea{
+				height: 100%;
+				width: 100%;
+				padding: 5px;
+				background-color: #c0c0c0;
+				border: none;
+				overflow: auto;
+				resize: none;
+				font-family: 'Roboto Mono', monotone;
+			}
+			.win{
+				border-right: 1px solid grey;
+				overflow: auto;
+			}
+			.codeLabel{
+				border:1px solid black;
+				text-align: center;
+				padding: 0px 5px;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				opacity: 0.5;
+			}
+			#HTMLWin{
+				width: 25%; /* Change to 33.33% to make result larger on bottom */
+				height: 100%;
+				position: relative;
+				float: left;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				border-top: none;
+			}
+			#CSSWin{
+				width: 25%; /* Change to 33.33% to make result larger on bottom */
+				height: 100%;
+				position: relative;
+				float: left;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				border-top: none;
+			}
+			#JSWin{
+				width: 25%; /* Change to 33.33% to make result larger on bottom */
+				height: 100%;
+				position: relative;
+				float: left;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			#ResultWin{
+				width: 25%; /* Change to 100% to make result larger on bottom */
+				height: 100%;
+				position: relative;
+				float: left;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			iframe{
+				height: 100%;
+				position: relative;
+				margin: 0 auto;
+				width: 100%; /* Change to 100% to make result larger on bottom */
+			}
+		</style>
+	</head>
+	<body style="height: 100%; background-color:#c0c0c0;" onload="$('.runBut').click()">
+		<div id="wrapper">
+			<div id="menuBar">
+
+				<div id="logo">
+					<p>CodePlayer</p>
+				</div>
+
+				<div id="buttonDiv">
+					<button class="runBut">Run</button>
+				</div>
+
+				<div id="tabs">
+					<ul id="toggles">
+						<li class="hovered selected" id="hWin">HTML</li>
+						<li class="hovered selected" id="cWin">CSS</li>
+						<li class="hovered selected" id="jWin">JS</li>
+						<li class="hovered selected" id="rWin">Result</li>
+					</ul>
+				</div>
+				<!-- Close Menu -->
+			</div>
+			<div id="windows">
+				<div id="HTMLWin" class="win">
+					<div class="codeLabel">HTML</div>
+					<textarea id="htmlText" cols="29" rows="10" placeholder="HTML Code Here"><div id="test"><p>Hey</p></div></textarea>
+				</div>
+				<div id="CSSWin" class="win">
+					<div class="codeLabel">CSS</div>
+					<textarea id="cssText" cols="30" rows="10" placeholder="CSS Code Here">html{background-color:blue; color:white;}</textarea>
+				</div>
+				<div id="JSWin" class="win">
+					<div class="codeLabel">JS</div>
+					<textarea id="jsText" cols="30" rows="10" placeholder="JS Code Here">document.getElementById("test").innerHTML="<p>Works</p>";</textarea>
+				</div><!-- Change Class Name Below To Make Larger Result -->
+				<div id="ResultWin" class="win" style="/*width: 100%; Uncomment to make result larger*/background-color: red;">
+					<iframe id="frame" style="border:none;"></iframe>
+					<div class="codeLabel">Result</div>
+				</div>
+			</div>
+			<!-- Close Wrapper -->
+		</div>
+
+
+		<script>
+			$(".runBut").mouseenter(function(){
+				$(this).addClass("hover");
+			}).mouseleave(function(){
+				$(this).removeClass("hover");
+			});
+			/* Height of containers - menu */
+			var windowHeight = $(window).height();
+			var menuHeight = $("#menuBar").height();
+			var finishedWindowHeight = (windowHeight-menuHeight); // Divide by 2 to make other windows 50% for a larger result
+			$("#windows").height(finishedWindowHeight-1);
+
+			var windowWidth = $(".win").width()-85;
+			var largeWidth = $("#windows").width();
+			
+			/*Toggling*/
+			$(".hovered").click(function(){
+				// Toggles Selected Tab
+				$(this).toggleClass("selected");
+				
+				// Toggles Windows
+				var activeDiv = $(this).html();
+				$("#"+activeDiv+"Win").toggle();
+				
+				// Filter Number of Windows Displayed
+				var showingDivs = $(".win").filter(function(){
+					return($(this).css("display")!="none");
+				}).length;
+
+				// Sets Width
+				var setDivWidth = (100/showingDivs)+"%";
+
+				// Width of Windows
+				$(".win").css("width", setDivWidth);
+
+				// Remove Comment Below to Make Result Larger
+				// if(setDivWidth == "Infinity%"){
+				// 	alert("Hey");	
+				// 	document.getElementById('ResultWin').style.height = "100%";
+				// 	document.getElementById('frame').style.height = "100%";
+				// }
+			});
+
+			// Run Button
+			$(".runBut").click(function(){
+				$("#frame").contents().find("html").html("<style>"+$('#cssText').val()+"</style>"+"<body>"+$('#htmlText').val()+"</body>");
+				document.getElementById('frame').contentWindow.eval($("#jsText").val());
+			});
+		</script>
+	</body>
+</html>
