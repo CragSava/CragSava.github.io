@@ -27,7 +27,7 @@
 				width: 100%;
 				height: 100%;
 				font-family: "Ubuntu";
-				background-color: #f9f9f9;
+				background-color: #d8d8d8;
 			}
 			a{text-decoration: inherit; color: inherit;}
 			a:visited{}
@@ -36,7 +36,8 @@
 			.navbar{
 				width: 100%;
 				height: 50px;
-				background-color: #d3d3d3;
+				color: black;
+				background-color: #939393;
 				font-family: "Montserrat";
 			}
 			.nav-items{
@@ -87,10 +88,10 @@
 				/*background-color: #f2f2f2;*/
 
 background: #bfbfbf;
-background: -moz-linear-gradient(top, #d3d3d3 0%, #e0e0e0 50%, #f9f9f9 100%);
-background: -webkit-linear-gradient(top, #d3d3d3 0%,#e0e0e0 50%,#f9f9f9 100%);
-background: linear-gradient(to bottom, #d3d3d3 0%,#e0e0e0 50%,#f9f9f9 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#f9f9f9',GradientType=0 );
+background: -moz-linear-gradient(top, #939393 0%, #B7B7B7 50%, #d8d8d8 100%);
+background: -webkit-linear-gradient(top, #939393 0%,#B7B7B7 50%,#d8d8d8 100%);
+background: linear-gradient(to bottom, #939393 0%,#B7B7B7 50%,#d8d8d8 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#939393', endColorstr='#d8d8d8',GradientType=0 );
 
 				width: 75%;
 				margin: 0 auto;
@@ -275,7 +276,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', end
 					$("#moreContentL").stop().animate({height: "toggle"}, 400);	
 				}
 				
-			})
+			});
 			$("#rightMore").click(function(){
 
 				if($("#moreContentL").css("display") != "none"){
@@ -286,7 +287,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', end
 					$("#moreContentR").stop().animate({height: "toggle"}, 400);	
 				}
 
-			})
+			});
 		</script>
 	</body>
 </html>
